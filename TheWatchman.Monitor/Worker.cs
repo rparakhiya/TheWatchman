@@ -22,6 +22,8 @@ namespace TheWatchman.Monitor
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            // TODO: Making this method wait doesn't start the windows service and gets stuck in the starting mode. Need to fix
+
             _logger.LogInformation("Worker started at: {time}", DateTimeOffset.Now);
 
             while (!stoppingToken.IsCancellationRequested)

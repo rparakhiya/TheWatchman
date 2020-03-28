@@ -12,14 +12,10 @@ namespace TheWatchman.Server.Services
     {
         private const string AppSettingsKey = "Resources";
         
-        private readonly IConfiguration _configuration;
-        private readonly IAppSettingsPersister _appSettingsPersister;
         private readonly IDbContext _context;
 
-        public MonitoredResourceProvider(IConfiguration configuration, IAppSettingsPersister appSettingsPersister, IDbContext context)
+        public MonitoredResourceProvider(IDbContext context)
         {
-            _configuration = configuration;
-            _appSettingsPersister = appSettingsPersister;
             _context = context;
         }
         
@@ -43,10 +39,7 @@ namespace TheWatchman.Server.Services
                 Secret = Guid.NewGuid().ToString()
             };
 
-            var resources = this.GetResources();
-            resources.Add(resource);
-
-            _appSettingsPersister.UpdateKey(AppSettingsKey, resources);
+            _context.Insert<MonitoredResource, string>(resource);
             
             return resource;
         }

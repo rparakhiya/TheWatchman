@@ -22,6 +22,7 @@ namespace TheWatchman.Monitor
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration(builder =>
                     {
+                        // TODO: Installing as windows service sets base path to C:\windows\system32. Need to fix that
                         builder
                             .SetBasePath(Environment.CurrentDirectory)
                             .AddJsonFile("appsettings.json", true)
