@@ -18,6 +18,7 @@ namespace TheWatchman.Server
                 .SetBasePath(Environment.CurrentDirectory)
                 .AddJsonFile("appsettings.json", false)
                 .AddJsonFile($"appsettings.{environment}.json", true, true)
+                .AddEnvironmentVariables("WATCHMAN_")
                 .Build();
 
             services.AddSingleton(configuration);

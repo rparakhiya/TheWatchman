@@ -24,7 +24,8 @@ namespace TheWatchman.Monitor
                     {
                         builder
                             .SetBasePath(Environment.CurrentDirectory)
-                            .AddJsonFile("appsettings.json", true);
+                            .AddJsonFile("appsettings.json", true)
+                            .AddEnvironmentVariables("WATCHMAN_");
                     })
                 .ConfigureServices((hostContext, services) =>
                 {
