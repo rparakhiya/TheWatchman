@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWatchman.Core", "TheWatc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWatchman.OtpGenerator", "TheWatchman.OtpGenerator\TheWatchman.OtpGenerator.csproj", "{96F78CB0-3E14-4A9F-BA5A-FEE6798F1BAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWatchman.Monitor", "TheWatchman.Monitor\TheWatchman.Monitor.csproj", "{97662EB3-C924-4875-9C92-81D586EEA932}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{96F78CB0-3E14-4A9F-BA5A-FEE6798F1BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96F78CB0-3E14-4A9F-BA5A-FEE6798F1BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96F78CB0-3E14-4A9F-BA5A-FEE6798F1BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97662EB3-C924-4875-9C92-81D586EEA932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97662EB3-C924-4875-9C92-81D586EEA932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97662EB3-C924-4875-9C92-81D586EEA932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97662EB3-C924-4875-9C92-81D586EEA932}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
