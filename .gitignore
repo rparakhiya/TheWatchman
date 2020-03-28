@@ -1,3 +1,5 @@
+TheWatchman.Server/Data/*.db
+
 # Created by https://www.gitignore.io/api/rider,csharp,dotnetcore,visualstudio
 # Edit at https://www.gitignore.io/?templates=rider,csharp,dotnetcore,visualstudio
 
