@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using TheWatchman.Core;
+using TheWatchman.Core.Authentication;
 
 namespace TheWatchman.OtpGenerator
 {

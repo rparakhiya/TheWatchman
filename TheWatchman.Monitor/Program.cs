@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
+using TheWatchman.Core.Logging;
 using TheWatchman.Monitor.Models;
 using TheWatchman.Monitor.Services;
 
@@ -34,7 +36,8 @@ namespace TheWatchman.Monitor
 
                     services.AddSingleton(configuration.GetSection("ResourceMonitor").Get<ResourceMonitorOptions>());
                     services.AddSingleton<IHeartbeatService, HeartbeatService>();
-                    services.AddHostedService<Worker>();
-                });
+                    services.AddHostedService<HeartbeatServiceWorker>();
+                })
+                .UseSerilog(LoggingConfigurator.ConfigureLogger);
     }
 }

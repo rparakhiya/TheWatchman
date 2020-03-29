@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OtpNet;
 using TheWatchman.Core;
+using TheWatchman.Core.Authentication;
 using TheWatchman.Server.Options;
 using TheWatchman.Server.Services;
 

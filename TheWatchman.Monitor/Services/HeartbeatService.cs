@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using RestSharp;
 using RestSharp.Authenticators;
 using TheWatchman.Core;
+using TheWatchman.Core.Authentication;
 using TheWatchman.Monitor.Models;
 using TheWatchman.Monitor.RestConfigurations;
 

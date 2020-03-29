@@ -2,7 +2,7 @@
 using System.Text;
 using OtpNet;
 
-namespace TheWatchman.Core
+namespace TheWatchman.Core.Authentication
 {
     public class TOtpGenerator
     {
