@@ -60,7 +60,7 @@ class Resources extends React.PureComponent<ResourcesProps> {
         <tbody>
           {this.props.resources.map((resource: ResourceStatusStore.ResourceStatus) =>
             <tr key={resource.resource.id}>
-              <td>
+              <td title={`Recent Hearbeat: ${(resource.lastHeartbeat ? resource.lastHeartbeat.toLocaleString() : 'Never')}`}>
                 <svg className={`bi bi-circle-fill ${this.getStatusColor(resource.status)}`} width="1em" height="1em" 
                     viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="8" cy="8" r="8"/>
