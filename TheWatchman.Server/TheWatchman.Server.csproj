@@ -32,11 +32,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\resources.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Data\.gitkeep">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\resources.db">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
@@ -50,8 +50,7 @@
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
   </Target>
 
-  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish"
-          Condition=" '$(BuildingDocker)' == '' ">
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish" Condition=" '$(BuildingDocker)' == '' ">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />

@@ -49,6 +49,7 @@ namespace TheWatchman.Server.Services
 
             var resource = _monitoredResourceProvider.Register(name, description);
 
+            Console.WriteLine($"Resource Id: {resource.Id}");
             Console.WriteLine($"Secret: {resource.Secret}");
         }
 
