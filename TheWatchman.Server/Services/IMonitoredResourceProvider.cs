@@ -9,5 +9,6 @@ namespace TheWatchman.Server.Services
         List<MonitoredResource> GetResources();
         MonitoredResource GetResource(string id);
         MonitoredResource Register(string name, string description);
+        MonitoredResource Delete(string resourceId);
     }
 }

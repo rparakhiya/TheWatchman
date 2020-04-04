@@ -43,5 +43,10 @@ namespace TheWatchman.Server.Services
             
             return resource;
         }
+
+        public MonitoredResource Delete(string resourceId)
+        {
+            return _context.Delete<MonitoredResource, string>(resourceId);
+        }
     }
 }

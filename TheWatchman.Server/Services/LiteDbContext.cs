@@ -61,7 +61,15 @@ namespace TheWatchman.Server.Services
         public T Delete<T, TId>(TId id)
             where T: IPersistableEntity<TId>
         {
-            throw new NotImplementedException();
+            var resource = Get<T, TId>(id);
+
+            if (!this.GetCollection<T, TId>()
+                .Delete(new BsonValue(id.ToString())))
+            {
+                throw new Exception($"Couldn't delete the document {id}. Returned false.");
+            }
+
+            return resource;
         }
     }
 }

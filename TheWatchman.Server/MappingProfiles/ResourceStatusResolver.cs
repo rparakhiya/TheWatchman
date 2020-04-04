@@ -16,7 +16,9 @@ namespace TheWatchman.Server.MappingProfiles
 
             var minutesSinceLastHeartbeat = DateTime.UtcNow.Subtract(source.LastHeartbeat.Value.ToUniversalTime()).Minutes;
 
-            return minutesSinceLastHeartbeat <= 5 ? ResourceStatuses.Online : ResourceStatuses.Offline;
+            return minutesSinceLastHeartbeat <= 2 ? ResourceStatuses.Online 
+                : minutesSinceLastHeartbeat <= 5 ? ResourceStatuses.Degraded
+                : ResourceStatuses.Offline;
         }
     }
 }
