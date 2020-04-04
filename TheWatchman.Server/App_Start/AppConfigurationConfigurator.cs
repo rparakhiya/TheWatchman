@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TheWatchman.Server.Options;
 using TheWatchman.Server.Services;
+using TheWatchman.Server.Services.Email;
 
 namespace TheWatchman.Server
 {
@@ -22,6 +24,12 @@ namespace TheWatchman.Server
                 .Build();
 
             services.AddSingleton(configuration);
+
+            var smtpConfiguration = configuration.GetSection("Smtp").Get<SmtpConfiguration>();
+            var notificationConfiguration = configuration.GetSection("Notifications").Get<NotificationOptions>();
+
+            services.AddSingleton(smtpConfiguration);
+            services.AddSingleton(notificationConfiguration);
         }
     }
 }
