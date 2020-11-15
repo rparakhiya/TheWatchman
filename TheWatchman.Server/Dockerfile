@@ -6,6 +6,8 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
 WORKDIR /src
 COPY TheWatchman.Server/TheWatchman.Server.csproj TheWatchman.Server/
 COPY TheWatchman.Core/TheWatchman.Core.csproj TheWatchman.Core/
