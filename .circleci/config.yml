@@ -1,13 +1,19 @@
 version: 2.1
 
-orbs:
-  win: circleci/windows@2.2.0
-
 jobs:
   build:
-    executor: win/default     
-    
+    docker:
+    - image: mcr.microsoft.com/dotnet/sdk:3.1-buster  
+  
     steps:
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
+      - run:
+          name: Install Docker Compose
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            mv ~/docker-compose /usr/local/bin/docker-compose
       - checkout
-      - run: dotnet build TheWatchman.sln
-
+      - run: docker-compose build
