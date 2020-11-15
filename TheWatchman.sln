@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWatchman.OtpGenerator", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWatchman.Monitor", "TheWatchman.Monitor\TheWatchman.Monitor.csproj", "{97662EB3-C924-4875-9C92-81D586EEA932}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F19967F3-A714-4619-AC62-389D0B1DD501}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{97662EB3-C924-4875-9C92-81D586EEA932}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97662EB3-C924-4875-9C92-81D586EEA932}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97662EB3-C924-4875-9C92-81D586EEA932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F19967F3-A714-4619-AC62-389D0B1DD501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F19967F3-A714-4619-AC62-389D0B1DD501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19967F3-A714-4619-AC62-389D0B1DD501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F19967F3-A714-4619-AC62-389D0B1DD501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
