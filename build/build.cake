@@ -27,14 +27,14 @@ Task("Restore-NuGet-Packages")
     .IsDependentOn("Clean")
     .Does(() =>
 {
-    DotNetCoreRestore("../");
+    DotNetCoreRestore("../TheWatchman.sln");
 });
 
 Task("Build")
     .IsDependentOn("Restore-NuGet-Packages")
     .Does(() =>
 {
-    DotNetCoreBuild("../", new DotNetCoreBuildSettings {Configuration = configuration});
+    DotNetCoreBuild("../TheWatchman.sln", new DotNetCoreBuildSettings {Configuration = configuration});
 });
 
 Task("Publish-Server")
