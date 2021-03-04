@@ -6,29 +6,23 @@ jobs:
       image: ubuntu-1604:202007-01
   
     steps:
-      - run:
-          name: Install Docker Compose
-          command: |
-            curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            mv ~/docker-compose /usr/local/bin/docker-compose
       - checkout
       - run:
           name: Build Server Image
           command: |
-            docker build -t thewatchman-server:latest -f TheWatchman.Server/Dockerfile .
+            docker build -t rumitparakhiya/thewatchman-server:latest -f TheWatchman.Server/Dockerfile .
       - run:
           name: Publish Server Image to Docker Hub
           command: |
             echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
-            docker push thewatchman-server:latest
+            docker push rumitparakhiya/thewatchman-server:latest
 
       - run:
           name: Build Monitor Image
           command: |
-            docker build -t thewatchman-monitor:latest -f TheWatchman.Monitor/Dockerfile .
+            docker build -t rumitparakhiya/thewatchman-monitor:latest -f TheWatchman.Monitor/Dockerfile .
       - run:
           name: Publish Monitor Image to Docker Hub
           command: |
             echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
-            docker push thewatchman-monitor:latest
+            docker push rumitparakhiya/thewatchman-monitor:latest
