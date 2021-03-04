@@ -15,4 +15,22 @@ jobs:
             chmod +x ~/docker-compose
             mv ~/docker-compose /usr/local/bin/docker-compose
       - checkout
-      - run: docker-compose build
+      - run:
+          name: Build Server Image
+          command: |
+            docker build -t thewatchman-server:latest -f TheWatchman.Server/Dockerfile .
+      - run:
+          name: Publish Server Image to Docker Hub
+          command: |
+            echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+            docker push thewatchman-server:latest
+
+      - run:
+          name: Build Monitor Image
+          command: |
+            docker build -t thewatchman-monitor:latest -f TheWatchman.Monitor/Dockerfile .
+      - run:
+          name: Publish Monitor Image to Docker Hub
+          command: |
+            echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+            docker push thewatchman-monitor:latest
