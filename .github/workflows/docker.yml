@@ -1,0 +1,25 @@
+name: Docker
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build and Push Server Image
+      run: |
+        docker build -t server:latest . -f .\TheWatchman.Server\Dockerfile
+        docker tag server:latest docker.pkg.github.com/rparakhiya/thewatchman/server:latest
+        docker push
+        
+    - name: Build and Push Monitor Image
+      run: |
+        docker build -t monitor:latest . -f .\TheWatchman.Monitor\Dockerfile
+        docker tag monitor:latest docker.pkg.github.com/rparakhiya/thewatchman/monitor:latest
+        docker push
